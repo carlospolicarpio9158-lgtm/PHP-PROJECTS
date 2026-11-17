@@ -20,7 +20,7 @@ require_once 'products.php';
     ?>
 </table>
 
-<p>Note: All prices vary depending on the quantity purchased.</p>
+<p id="note">Note: All prices vary depending on the quantity purchased.</p>
 
 <h3>Toppings</h3>
 
@@ -41,4 +41,4 @@ require_once 'products.php';
     ?>
 </table>
 
-<p>Note: All prices may vary on chosen combinations.</p>
+<p id="note">Note: All prices may vary on chosen combinations.</p>
