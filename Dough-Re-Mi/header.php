@@ -49,7 +49,7 @@
             font-weight: bold;
             font-size: 1.5em;
         }
-        #note {
+        .note {
             font-size: 0.9em;
             color: #FF4500;
         }
