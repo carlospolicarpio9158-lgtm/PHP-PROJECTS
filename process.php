@@ -44,4 +44,42 @@ include 'header.php';
 echo '<h2>Order Receipt</h2>';
 echo '<p>Customer: ' . htmlspecialchars($name) . '</p>';
 echo '<p>Customer type: ' . $customerTypes[$type] . '</p>';
+
+switch ($type) {
+    case 'student':
+        echo '<p>Student discount: 10% off the donuts.</p>';
+        break;
+    case 'faculty':
+        echo '<p>Faculty discount: 5% off the donuts.</p>';
+        break;
+    default:
+        echo '<p>No discount for guests.</p>';
+}
+
+echo '<h3>Items Ordered</h3>';
+for ($i = 1; $i <= $quantity; $i++) {
+    echo '<p>Kilo ' . $i . ': ' . $productName . ' - PHP ' . number_format($price, 2) . '</p>';
+}
+
+if (count($toppingsList) > 0) {
+    echo '<h3>Toppings</h3>';
+    echo '<table>';
+    echo '<tr><th>Ice Cream</th><th>Sauce</th><th>Price</th></tr>';
+    foreach ($toppingsList as $topping) {
+        echo '<tr>';
+        echo '<td>' . $topping['iceCream'] . '</td>';
+        echo '<td>' . $topping['sauce'] . '</td>';
+        echo '<td>PHP ' . number_format($topping['price'], 2) . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+} else {
+    echo '<p>No toppings selected.</p>';
+}
+
+echo '<p>Donuts: PHP ' . number_format($subtotal, 2) . '</p>';
+echo '<p>Discount: PHP ' . number_format($discount, 2) . '</p>';
+echo '<p>Toppings: PHP ' . number_format($toppingsTotal, 2) . '</p>';
+echo '<h3>Final Bill: PHP ' . number_format($total, 2) . '</h3>';
+echo '<p>Budget: PHP ' . number_format($budget, 2) . '</p>';
 ?>
