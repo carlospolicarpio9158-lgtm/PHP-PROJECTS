@@ -11,3 +11,12 @@ $toppings = [
     'T2' => ['iceCream' => 'Chocolate', 'sauce' => 'Caramel', 'price' => 70],
     'T3' => ['iceCream' => 'Mango', 'sauce' => 'Strawberry', 'price' => 55],
 ];
+
+$customerTypes = [
+    'student' => 'Student',
+    'faculty' => 'Faculty',
+    'guest' => 'Guest',
+];
+
+$denominations = [1000, 500, 200, 100, 50, 20, 10, 5, 1];
+$maxQuantity = 10;
