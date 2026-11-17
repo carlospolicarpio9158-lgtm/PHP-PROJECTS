@@ -103,4 +103,13 @@ if ($budget >= $total) {
 } else {
     echo '<p class="error">Shortage: PHP ' . number_format($total - $budget, 2) . '</p>';
 }
-?>
+
+echo '<h3>Preparation Progress</h3>';
+$counter = 1;
+while ($counter <= $quantity) {
+    echo '<p>Preparing kilo ' . $counter . ' of ' . $quantity . '</p>';
+    $counter++;
+}
+
+echo '<p><a href="index.php">Scoop another order Dough!</a></p>';
+include 'footer.php';
