@@ -82,4 +82,25 @@ echo '<p>Discount: PHP ' . number_format($discount, 2) . '</p>';
 echo '<p>Toppings: PHP ' . number_format($toppingsTotal, 2) . '</p>';
 echo '<h3>Final Bill: PHP ' . number_format($total, 2) . '</h3>';
 echo '<p>Budget: PHP ' . number_format($budget, 2) . '</p>';
+
+$status = ($budget >= $total) ? 'sufficient' : 'not enough';
+echo '<p>Budget is ' . $status . '.</p>';
+
+if ($budget >= $total) {
+    $balance = $budget - $total;
+    echo '<p class="success">Balance: PHP ' . number_format($balance, 2) . '</p>';
+    echo '<h3>Change</h3>';
+    $change = (int) $balance;
+    $i = 0;
+    do {
+        $count = intdiv($change, $denominations[$i]);
+        if ($count > 0) {
+            echo '<p>' . $count . ' x PHP ' . $denominations[$i] . '</p>';
+        }
+        $change = $change % $denominations[$i];
+        $i++;
+    } while ($change > 0);
+} else {
+    echo '<p class="error">Shortage: PHP ' . number_format($total - $budget, 2) . '</p>';
+}
 ?>
