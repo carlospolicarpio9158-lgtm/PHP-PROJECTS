@@ -34,7 +34,7 @@ include 'menu.php';
     <label>Toppings (optional)</label>
     <br>
     <?php
-
+    
     foreach ($toppings as $code => $topping) {
         echo '<label>';
         echo '<input type="checkbox" name="toppings[]" value="' . $code . '">';
