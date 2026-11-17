@@ -39,6 +39,7 @@ foreach ($chosen as $toppingCode) {
     }
 }
 $total = $subtotal - $discount + $toppingsTotal;
+$kiloLabel = ($quantity == 1) ? 'kilo' : 'kilos';
 include 'header.php';
 
 echo '<h2>Order Receipt</h2>';
@@ -57,6 +58,7 @@ switch ($type) {
 }
 
 echo '<h3>Items Ordered</h3>';
+echo '<p>' . $quantity . ' ' . $kiloLabel . ' of ' . $productName . '</p>';
 for ($i = 1; $i <= $quantity; $i++) {
     echo '<p>Kilo ' . $i . ': ' . $productName . ' - PHP ' . number_format($price, 2) . '</p>';
 }
@@ -83,23 +85,33 @@ echo '<p>Toppings: PHP ' . number_format($toppingsTotal, 2) . '</p>';
 echo '<h3 id="final">Final Bill: PHP ' . number_format($total, 2) . '</h3>';
 echo '<p>Budget: PHP ' . number_format($budget, 2) . '</p>';
 
-$status = ($budget >= $total) ? 'sufficient' : 'not enough';
+if ($budget > $total) {
+    $status = 'more than enough';
+} elseif ($budget == $total) {
+    $status = 'exact';
+} else {
+    $status = 'not enough';
+}
 echo '<p>Budget is ' . $status . '.</p>';
 
 if ($budget >= $total) {
     $balance = $budget - $total;
-    echo '<p class="success">Balance: PHP ' . number_format($balance, 2) . '</p>';
-    echo '<h3>Change</h3>';
+    echo '<p class="success">Change: PHP ' . number_format($balance, 2) . '</p>';
+
     $change = (int) $balance;
-    $i = 0;
-    do {
-        $count = intdiv($change, $denominations[$i]);
-        if ($count > 0) {
-            echo '<p>' . $count . ' x PHP ' . $denominations[$i] . '</p>';
-        }
-        $change = $change % $denominations[$i];
-        $i++;
-    } while ($change > 0);
+    if ($change > 0) {
+        $breakdown = [];
+        $i = 0;
+        do {
+            $count = intdiv($change, $denominations[$i]);
+            if ($count > 0) {
+                $breakdown[] = $count . ' x PHP ' . $denominations[$i];
+            }
+            $change = $change % $denominations[$i];
+            $i++;
+        } while ($change > 0);
+        echo '<p>Breakdown: ' . implode(', ', $breakdown) . '</p>';
+    }
 } else {
     echo '<p class="error">Shortage: PHP ' . number_format($total - $budget, 2) . '</p>';
 }
