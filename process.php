@@ -80,7 +80,7 @@ if (count($toppingsList) > 0) {
 echo '<p>Dough: PHP ' . number_format($subtotal, 2) . '</p>';
 echo '<p>Discount: PHP ' . number_format($discount, 2) . '</p>';
 echo '<p>Toppings: PHP ' . number_format($toppingsTotal, 2) . '</p>';
-echo '<h3>Final Bill: PHP ' . number_format($total, 2) . '</h3>';
+echo '<h3 id="final">Final Bill: PHP ' . number_format($total, 2) . '</h3>';
 echo '<p>Budget: PHP ' . number_format($budget, 2) . '</p>';
 
 $status = ($budget >= $total) ? 'sufficient' : 'not enough';
@@ -111,5 +111,5 @@ while ($counter <= $quantity) {
     $counter++;
 }
 
-echo '<p><a href="index.php">Scoop another order Dough!</a></p>';
+echo '<p><a href="index.php">Scoop another order of Dough!</a></p>';
 include 'footer.php';
