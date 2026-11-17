@@ -21,3 +21,24 @@ require_once 'products.php';
 </table>
 
 <p>Note: All prices vary depending on the quantity purchased.</p>
+
+<h3>Toppings</h3>
+
+<table>
+    <tr>
+        <th>Ice Cream</th>
+        <th>Sauce</th>
+        <th>Price</th>
+    </tr>
+    <?php
+    foreach ($toppings as $topping) {
+        echo '<tr>';
+        echo '<td>' . $topping['iceCream'] . '</td>';
+        echo '<td>' . $topping['sauce'] . '</td>';
+        echo '<td>&#8369;' . number_format($topping['price'], 2) . '</td>';
+        echo '</tr>';
+    }
+    ?>
+</table>
+
+<p>Note: All prices may vary on chosen combinations.</p>
