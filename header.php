@@ -46,6 +46,8 @@
         }
         .success {
             color: #216d45;
+            font-weight: bold;
+            font-size: 1.5em;
         }
         #note {
             font-size: 0.9em;
@@ -63,6 +65,10 @@
         #tagline {
             font-size: 1.1em;
             color: #7b3fa0;
+            font-weight: bold;
+        }
+        #final {
+            color: #216d45;
             font-weight: bold;
         }
     </style>
