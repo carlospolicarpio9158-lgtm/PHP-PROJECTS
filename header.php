@@ -7,14 +7,15 @@
     <style>
         body{
             font-family: Arial, sans-serif;
-            background: linear-gradient(90deg, #b84d7a, #8a2be2);
+            background: linear-gradient(100deg, #e59bba, #f1f1f1);
             padding: 20px;
         }
         main {
             max-width: 680px;
             padding: 24px;
             margin: auto;
-            background: #e59bba;
+            background: #ffffd9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
         }
         input, select, button {
             padding: 9px;
@@ -46,9 +47,27 @@
         .success {
             color: #216d45;
         }
+        #note {
+            font-size: 0.9em;
+            color: #FF4500;
+        }
+        #process {
+            background: #7b3fa0;
+            color: white;
+            border: none;
+        }
+        #footer {
+            text-align: center;
+            font-style: italic;
+        }
+        #tagline {
+            font-size: 1.1em;
+            color: #7b3fa0;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <main>
         <h1>Dough-Re-Mi</h1>
-        <p>Tamang masa, Tamang Lasa!</p>
+        <p id="tagline">Tamang masa, Tamang Lasa!</p>
