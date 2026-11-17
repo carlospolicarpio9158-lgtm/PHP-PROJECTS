@@ -47,7 +47,7 @@ include 'menu.php';
     <label>Budget (PHP)</label>
     <input name="budget" type="number" min="0" step="0.01" required>
 
-    <button type="submit">Process Order</button>
+    <button type="submit" id="process">Process Order</button>
 </form>
 
 <?php include 'footer.php'; ?>
