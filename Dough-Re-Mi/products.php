@@ -4,6 +4,9 @@ $products = [
     'D1' => ['name' => 'Original', 'price' => 25],
     'D2' => ['name' => 'Chocolate', 'price' => 35],
     'D3' => ['name' => 'Red Velvet', 'price' => 39],
+    'D4' => ['name' => 'Ube', 'price' => 38],
+    'D5' => ['name' => 'Matcha', 'price' => 42],
+    'D6' => ['name' => 'Cheese', 'price' => 36],
 ];
 
 $toppings = [
