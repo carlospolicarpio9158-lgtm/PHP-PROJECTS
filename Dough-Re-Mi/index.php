@@ -50,4 +50,5 @@ include 'menu.php';
     <button type="submit" id="process">Process Order</button>
 </form>
 
+<p><a href="stock.php">View Stock</a></p>
 <?php include 'footer.php'; ?>
