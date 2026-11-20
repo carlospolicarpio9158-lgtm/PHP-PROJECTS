@@ -27,5 +27,18 @@ function get_tax_due(float $price, int $quantity, int $tax_rate = 0): float
     $total_value = $price * $quantity;
     return $total_value * ($tax_rate / 100);
 }
+include 'header.php';
+?>
+
+<h2>Stock Control</h2>
+
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Stock</th>
+        <th>Re-order</th>
+        <th>Total Value</th>
+        <th>Tax Due</th>
+    </tr>
 
 <?php include 'footer.php'; ?>
