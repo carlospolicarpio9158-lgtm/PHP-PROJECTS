@@ -40,5 +40,15 @@ include 'header.php';
         <th>Total Value</th>
         <th>Tax Due</th>
     </tr>
+<?php foreach ($doughs as $product_name => $data) { ?>
+        <tr>
+            <td><?php echo $product_name; ?></td>
+            <td><?php echo $data['stock']; ?></td>
+            <td><?php echo get_reorder_message($data['stock']); ?></td>
+            <td>PHP <?php echo number_format(get_total_value($data['price'], $data['stock']), 2); ?></td>
+            <td>PHP <?php echo number_format(get_tax_due($data['price'], $data['stock'], $tax_rate), 2); ?></td>
+        </tr>
+    <?php } ?>
+</table>
 
 <?php include 'footer.php'; ?>
